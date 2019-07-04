@@ -5,10 +5,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { AppComponent } from './app.component';
+import { AppComponent } from './infrastructure/app.component';
 import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
 import { environment } from '../environments/environment';
-import { ThemeModule } from './theme.module';
+import { ThemeModule } from './infrastructure/theme.module';
 
 @NgModule({
   declarations: [AppComponent],

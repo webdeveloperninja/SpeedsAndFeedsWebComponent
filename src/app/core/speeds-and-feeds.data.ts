@@ -54,8 +54,8 @@ export const feedsAndSpeeds = [
       {
         name: 'Navel Brass',
         sfm: {
-          conservative: 500,
-          aggressive: 1000
+          conservative: 300,
+          aggressive: 800
         },
         chipLoad: {
           0.0125: 0.001,
