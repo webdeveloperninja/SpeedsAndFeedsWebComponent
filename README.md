@@ -1,3 +1,11 @@
+## Usage
+### Add script
+  ```<script src="https://speedsandfeedsweb.z19.web.core.windows.net/elements.js"></script>```
+### Add component
+  ```  <speeds-and-feeds-calculator></speeds-and-feeds-calculator>```
+### Demo shell
+[https://speedsandfeedsweb.z19.web.core.windows.net/](https://speedsandfeedsweb.z19.web.core.windows.net/)
+  
 # SpeedsFeedsCalculator
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.5.
