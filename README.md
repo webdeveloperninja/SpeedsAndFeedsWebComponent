@@ -3,6 +3,8 @@
   ```<script src="https://speedsandfeedsweb.z19.web.core.windows.net/elements.js"></script>```
 ### Add component
   ```  <speeds-and-feeds-calculator></speeds-and-feeds-calculator>```
+### Demo shell
+[https://speedsandfeedsweb.z19.web.core.windows.net/](https://speedsandfeedsweb.z19.web.core.windows.net/)
   
 # SpeedsFeedsCalculator
 
