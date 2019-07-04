@@ -4,12 +4,12 @@ import { AkitaNgFormsManager } from '@datorama/akita-ng-forms-manager';
 import { formName, FormsState, SpeedsAndFeedsService } from './speeds-and-feeds.service';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
+  templateUrl: './speeds-and-feeds.component.html',
   providers: [SpeedsAndFeedsService]
 })
-export class AppComponent implements OnInit, OnDestroy {
+export class SpeedsAndFeedsComponent implements OnInit, OnDestroy {
   readonly sfm$ = this.speedsAndFeeds.sfm$;
+  readonly chipLoad$ = this.speedsAndFeeds.chipLoad$;
   readonly feedsAndSpeeds = this.speedsAndFeeds.feedsAndSpeeds;
   readonly materials = Object.keys(this.feedsAndSpeeds).map(key => this.feedsAndSpeeds[key]);
   readonly groups: string[];
@@ -20,7 +20,7 @@ export class AppComponent implements OnInit, OnDestroy {
     toolMaterialType: [''],
     toolDiameter: [''],
     numberOfFlutes: [''],
-    cutAggression: ['Aggressive']
+    cutAggression: ['aggressive']
   });
 
   constructor(

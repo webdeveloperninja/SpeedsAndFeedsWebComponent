@@ -1,4 +1,5 @@
 <h1>{{ sfm$ | async | json }}</h1>
+<h1>load: {{ chipLoad$ | async }}</h1>
 <form [formGroup]="toolForm">
   <mat-form-field>
     <mat-label>Material To Cut</mat-label>
@@ -29,10 +30,10 @@
   <section>
     <label>Cut aggression:</label>
     <mat-radio-group formControlName="cutAggression">
-      <mat-radio-button value="Aggressive">
+      <mat-radio-button value="aggressive">
         Aggressive
       </mat-radio-button>
-      <mat-radio-button value="Conservative">
+      <mat-radio-button value="conservative">
         Conservative
       </mat-radio-button>
     </mat-radio-group>

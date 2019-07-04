@@ -5,13 +5,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { AppComponent } from './infrastructure/app.component';
+import { SpeedsAndFeedsComponent } from './infrastructure/speeds-and-feeds.component';
 import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
 import { environment } from '../environments/environment';
 import { ThemeModule } from './infrastructure/theme.module';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [SpeedsAndFeedsComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -21,13 +21,13 @@ import { ThemeModule } from './infrastructure/theme.module';
     environment.production ? [] : AkitaNgDevtools.forRoot()
   ],
   providers: [],
-  entryComponents: [AppComponent]
+  entryComponents: [SpeedsAndFeedsComponent]
 })
 export class AppModule {
   constructor(private readonly injector: Injector) {}
 
   ngDoBootstrap() {
-    const element = createCustomElement(AppComponent, { injector: this.injector });
+    const element = createCustomElement(SpeedsAndFeedsComponent, { injector: this.injector });
     customElements.define('speeds-and-feeds-calculator', element);
   }
 }
