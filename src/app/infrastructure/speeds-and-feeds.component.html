@@ -1,5 +1,5 @@
-<h1>{{ sfm$ | async | json }}</h1>
-<h1>load: {{ chipLoad$ | async }}</h1>
+<h1>SFM: {{ surfaceFeetPerMinute$ | async }}</h1>
+<h1>Chip Load: {{ chipLoad$ | async }}</h1>
 <form [formGroup]="toolForm">
   <mat-form-field>
     <mat-label>Material To Cut</mat-label>
@@ -25,7 +25,7 @@
     <input matInput placeholder="Tool Diamter" formControlName="toolDiameter">
   </mat-form-field>
   <mat-form-field>
-    <input matInput placeholder="Tool Diamter" formControlName="numberOfFlutes">
+    <input matInput placeholder="Number of Flutes" formControlName="numberOfFlutes">
   </mat-form-field>
   <section>
     <label>Cut aggression:</label>

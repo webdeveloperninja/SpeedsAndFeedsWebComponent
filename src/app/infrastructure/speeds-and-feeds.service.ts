@@ -21,7 +21,7 @@ export class SpeedsAndFeedsService {
   readonly feedsAndSpeeds = materials;
 
   // Todo clean up hardcoded strings
-  readonly sfm$ = this.formData$.pipe(
+  readonly surfaceFeetPerMinute = this.formData$.pipe(
     map(data => data.value),
     filter(data => !!data.materialToCut && !!this.feedsAndSpeeds[data.materialToCut]),
     map(data => {
