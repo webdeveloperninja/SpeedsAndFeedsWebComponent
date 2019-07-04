@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { AkitaNgFormsManager } from '@datorama/akita-ng-forms-manager';
+import { feedsAndSpeeds } from './speeds-and-feeds';
 
 export const formName = 'cutData';
 
@@ -20,6 +21,7 @@ export interface FormsState {
 })
 export class AppComponent implements OnInit, OnDestroy {
   readonly formData$ = this.formsManager.selectForm(formName);
+  readonly feedsAndSpeeds = feedsAndSpeeds;
 
   toolForm = this._formBuilder.group({
     materialToCut: [''],

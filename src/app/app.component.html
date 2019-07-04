@@ -1,20 +1,32 @@
 <form [formGroup]="toolForm">
-  <label>
-    Material To Cut:
-    <input type="text" formControlName="materialToCut">
-  </label>
-  <label>
-    Tool Material Type
-    <input type="text" formControlName="toolMaterialType">
-  </label>
-  <label>
-    Tool Diamter
-    <input type="text" formControlName="toolDiameter">
-  </label>
-  <label>
-    Number of Flutes
-    <input type="text" formControlName="numberOfFlutes">
-  </label>
+  <mat-form-field>
+    <mat-label>Material To Cut</mat-label>
+    <mat-select formControlName="materialToCut">
+      <mat-optgroup *ngFor="let group of feedsAndSpeeds" [label]="group.materialGroup">
+        <mat-option *ngFor="let material of group.materials" [value]="material.name">
+          {{material.name}}
+        </mat-option>
+      </mat-optgroup>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label> Tool Material Type
+    </mat-label>
+    <mat-select formControlName="toolMaterialType">
+      <mat-option value="carbide">
+        Carbide
+      </mat-option>
+      <mat-option value="carbide">
+        HSS
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Tool Diamter" formControlName="toolDiameter">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Tool Diamter" formControlName="numberOfFlutes">
+  </mat-form-field>
 </form>
 <pre>
   {{ formData$ | async | json }}
