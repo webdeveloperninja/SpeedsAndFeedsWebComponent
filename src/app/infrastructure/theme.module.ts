@@ -15,6 +15,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatSelectModule } from '@angular/material/select';
+import { MatRadioModule } from '@angular/material/radio';
 
 @NgModule({
   imports: [
@@ -33,7 +34,8 @@ import { MatSelectModule } from '@angular/material/select';
     MatMenuModule,
     MatProgressSpinnerModule,
     MatGridListModule,
-    MatSelectModule
+    MatSelectModule,
+    MatRadioModule
   ],
   exports: [
     MatButtonModule,
@@ -51,7 +53,8 @@ import { MatSelectModule } from '@angular/material/select';
     MatMenuModule,
     MatProgressSpinnerModule,
     MatGridListModule,
-    MatSelectModule
+    MatSelectModule,
+    MatRadioModule
   ]
 })
 export class ThemeModule {}

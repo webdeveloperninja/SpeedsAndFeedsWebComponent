@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AkitaNgFormsManager } from '@datorama/akita-ng-forms-manager';
 import { map, filter } from 'rxjs/operators';
-import { feedsAndSpeeds } from './speeds-and-feeds.data';
+import { materials } from '../core/speeds-and-feeds.data';
 
 // Todo think about where to put form related stuff doesnt seem like core
 export const formName = 'cutData';
@@ -12,19 +12,23 @@ export interface FormsState {
     toolMaterialType: number;
     toolDiameter: string;
     numberOfFlutes: string;
+    cutAggression: string;
   };
 }
 
 @Injectable()
 export class SpeedsAndFeedsService {
   readonly formData$ = this.formsManager.selectForm(formName);
-  readonly feedsAndSpeeds = feedsAndSpeeds;
+  readonly feedsAndSpeeds = materials;
 
-  // Todo create custom operator for logic
   readonly sfm$ = this.formData$.pipe(
     map(data => data.value),
-    filter(data => !!this.feedsAndSpeeds[0].materials.find(m => m.name === data.materialToCut)),
-    map(data => this.feedsAndSpeeds[0].materials.find(m => m.name === data.materialToCut).sfm.conservative)
+    filter(data => !!data.materialToCut && !!this.feedsAndSpeeds[data.materialToCut]),
+    map(data => {
+      const sfm = this.feedsAndSpeeds[data.materialToCut].sfm;
+
+      return data.cutAggression === 'Aggressive' ? sfm.aggressive : sfm.conservative;
+    })
   );
 
   // Todo core references infrasturcture for Forms State Fix

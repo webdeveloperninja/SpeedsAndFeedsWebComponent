@@ -3,11 +3,9 @@
   <mat-form-field>
     <mat-label>Material To Cut</mat-label>
     <mat-select formControlName="materialToCut">
-      <mat-optgroup *ngFor="let group of feedsAndSpeeds" [label]="group.materialGroup">
-        <mat-option *ngFor="let material of group.materials" [value]="material.name">
-          {{material.name}}
-        </mat-option>
-      </mat-optgroup>
+      <mat-option *ngFor="let material of materials" [value]="material.name">
+        {{ material.name}}
+      </mat-option>
     </mat-select>
   </mat-form-field>
   <mat-form-field>
@@ -28,6 +26,17 @@
   <mat-form-field>
     <input matInput placeholder="Tool Diamter" formControlName="numberOfFlutes">
   </mat-form-field>
+  <section>
+    <label>Cut aggression:</label>
+    <mat-radio-group formControlName="cutAggression">
+      <mat-radio-button value="Aggressive">
+        Aggressive
+      </mat-radio-button>
+      <mat-radio-button value="Conservative">
+        Conservative
+      </mat-radio-button>
+    </mat-radio-group>
+  </section>
 </form>
 <pre>
   {{ formData$ | async | json }}
