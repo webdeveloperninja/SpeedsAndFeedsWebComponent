@@ -4,8 +4,8 @@
   <mat-form-field>
     <mat-label>Material To Cut</mat-label>
     <mat-select formControlName="materialToCut">
-      <mat-option *ngFor="let material of materials" [value]="material.name">
-        {{ material.name}}
+      <mat-option *ngFor="let lookup of speedsAndFeedsLookup" [value]="lookup.name">
+        {{ lookup.name}}
       </mat-option>
     </mat-select>
   </mat-form-field>
@@ -39,6 +39,3 @@
     </mat-radio-group>
   </section>
 </form>
-<pre>
-  {{ formData$ | async | json }}
-</pre>

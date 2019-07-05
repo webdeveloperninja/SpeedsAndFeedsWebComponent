@@ -1,6 +1,21 @@
 // http://www.harveytool.com/cms/GeneralMachiningGuidelines_17.aspx
 
-export const materials = {
+export interface SpeedsAndFeedsLookup {
+  [toolName: string]: LookupEntry;
+}
+
+export interface LookupEntry {
+  name: string;
+  sfm: {
+    conservative: number;
+    aggressive: number;
+  };
+  chipLoad: {
+    [diameter: number]: number;
+  };
+}
+
+export const speedsAndFeedsLookup: SpeedsAndFeedsLookup = {
   '440 Aluminum': {
     name: '440 Aluminum',
     sfm: {
