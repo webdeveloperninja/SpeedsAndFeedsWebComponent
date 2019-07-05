@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --prod --output-hashing=none",
+    "build": "ng build --prod --optimization=false --output-hashing=none",
     "package": "cat dist/speeds-feeds-calculator/runtime.js dist/speeds-feeds-calculator/main.js dist/speeds-feeds-calculator/polyfills.js > dist/speeds-feeds-calculator/elements.js",
     "test": "ng test",
     "lint": "ng lint",
