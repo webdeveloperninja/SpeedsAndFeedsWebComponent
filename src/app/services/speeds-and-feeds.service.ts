@@ -4,6 +4,7 @@ import { filter, map } from 'rxjs/operators';
 import { CutAggression } from '../models/cut-aggression.enum';
 import { speedsAndFeedsLookup, LookupEntry as SpeedsAndFeedsLookupEntry, LookupEntry } from '../speeds-and-feeds.data';
 import { FormsState } from '../models/forms.state';
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 
 export const formName = 'cutForm';
 
@@ -34,7 +35,17 @@ export class SpeedsAndFeedsService {
     })
   );
 
-  constructor(private formsManager: AkitaNgFormsManager<FormsState>) {}
+  constructor(private formsManager: AkitaNgFormsManager<FormsState>, private readonly formBuilder: FormBuilder) {}
+
+  getFormGroup(): FormGroup {
+    return this.formBuilder.group({
+      materialToCut: ['', [Validators.required]],
+      toolMaterialType: ['', [Validators.required]],
+      toolDiameter: ['', [Validators.required]],
+      numberOfFlutes: ['', [Validators.required]],
+      cutAggression: [CutAggression.aggressive, [Validators.required]]
+    });
+  }
 
   private toSurfaceFeetPerMinute(lookupEntry: SpeedsAndFeedsLookupEntry, aggression: CutAggression) {
     const aggressiveSurfaceFeetPerMinute = lookupEntry.surfaceFeetPerMinute.aggressive;
