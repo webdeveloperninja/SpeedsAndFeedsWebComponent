@@ -22,29 +22,20 @@ export class SpeedsAndFeedsService {
 
   // Todo clean up hardcoded strings
   readonly surfaceFeetPerMinute = this.formData$.pipe(
-    map(data => data.value),
-    filter(data => !!data.materialToCut && !!this.feedsAndSpeeds[data.materialToCut]),
+    filter(data => data.valid),
     map(data => {
-      const sfm = this.feedsAndSpeeds[data.materialToCut].sfm;
+      const sfm = this.feedsAndSpeeds[data.value.materialToCut].sfm;
 
-      return data.cutAggression === 'aggressive' ? sfm.aggressive : sfm.conservative;
+      return data.value.cutAggression === 'aggressive' ? sfm.aggressive : sfm.conservative;
     })
   );
 
   // Todo everything from the form is a string fix that
   readonly chipLoad$ = this.formData$.pipe(
-    map(data => data.value),
-    filter(
-      data =>
-        !!data.materialToCut &&
-        !!this.feedsAndSpeeds[data.materialToCut] &&
-        !!this.feedsAndSpeeds[data.materialToCut].chipLoad[+data.toolDiameter]
-    ),
+    filter(data => data.valid),
     map(data => {
-      const material = this.feedsAndSpeeds[data.materialToCut];
-      const chipLoad = material.chipLoad[+data.toolDiameter];
-
-      return chipLoad;
+      const material = this.feedsAndSpeeds[data.value.materialToCut];
+      return material.chipLoad[data.value.toolDiameter];
     })
   );
 

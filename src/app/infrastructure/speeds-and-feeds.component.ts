@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { AkitaNgFormsManager } from '@datorama/akita-ng-forms-manager';
 import { formName, FormsState, SpeedsAndFeedsService } from './speeds-and-feeds.service';
 
@@ -16,11 +16,11 @@ export class SpeedsAndFeedsComponent implements OnInit, OnDestroy {
   readonly formData$ = this.speedsAndFeeds.formData$;
 
   readonly toolForm = this._formBuilder.group({
-    materialToCut: [''],
-    toolMaterialType: [''],
-    toolDiameter: [''],
-    numberOfFlutes: [''],
-    cutAggression: ['aggressive']
+    materialToCut: ['', [Validators.required]],
+    toolMaterialType: ['', [Validators.required]],
+    toolDiameter: ['', [Validators.required]],
+    numberOfFlutes: ['', [Validators.required]],
+    cutAggression: ['aggressive', [Validators.required]]
   });
 
   constructor(
