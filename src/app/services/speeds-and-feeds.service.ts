@@ -1,20 +1,11 @@
 import { Injectable } from '@angular/core';
 import { AkitaNgFormsManager } from '@datorama/akita-ng-forms-manager';
 import { filter, map } from 'rxjs/operators';
-import { CutAggression } from '../core/cut-aggression.enum';
-import { speedsAndFeedsLookup, LookupEntry as SpeedsAndFeedsLookupEntry, LookupEntry } from '../core/speeds-and-feeds.data';
+import { CutAggression } from '../models/cut-aggression.enum';
+import { speedsAndFeedsLookup, LookupEntry as SpeedsAndFeedsLookupEntry, LookupEntry } from '../speeds-and-feeds.data';
+import { FormsState } from '../models/forms.state';
 
-export const formName = 'cutData';
-
-export interface FormsState {
-  cutData: {
-    materialToCut: string;
-    toolMaterialType: number;
-    toolDiameter: string;
-    numberOfFlutes: string;
-    cutAggression: string;
-  };
-}
+export const formName = 'cutForm';
 
 @Injectable()
 export class SpeedsAndFeedsService {
@@ -46,8 +37,8 @@ export class SpeedsAndFeedsService {
   constructor(private formsManager: AkitaNgFormsManager<FormsState>) {}
 
   private toSurfaceFeetPerMinute(lookupEntry: SpeedsAndFeedsLookupEntry, aggression: CutAggression) {
-    const aggressiveSurfaceFeetPerMinute = lookupEntry.sfm.aggressive;
-    const conservativeSurfaceFeetPerMinute = lookupEntry.sfm.conservative;
+    const aggressiveSurfaceFeetPerMinute = lookupEntry.surfaceFeetPerMinute.aggressive;
+    const conservativeSurfaceFeetPerMinute = lookupEntry.surfaceFeetPerMinute.conservative;
 
     return aggression === CutAggression.aggressive ? aggressiveSurfaceFeetPerMinute : conservativeSurfaceFeetPerMinute;
   }

@@ -6,7 +6,7 @@ export interface SpeedsAndFeedsLookup {
 
 export interface LookupEntry {
   name: string;
-  sfm: {
+  surfaceFeetPerMinute: {
     conservative: number;
     aggressive: number;
   };
@@ -18,7 +18,7 @@ export interface LookupEntry {
 export const speedsAndFeedsLookup: SpeedsAndFeedsLookup = {
   '440 Aluminum': {
     name: '440 Aluminum',
-    sfm: {
+    surfaceFeetPerMinute: {
       conservative: 500,
       aggressive: 1000
     },
@@ -32,7 +32,7 @@ export const speedsAndFeedsLookup: SpeedsAndFeedsLookup = {
   },
   '356 Aluminum': {
     name: '356 Aluminum',
-    sfm: {
+    surfaceFeetPerMinute: {
       conservative: 5040,
       aggressive: 1000
     },
