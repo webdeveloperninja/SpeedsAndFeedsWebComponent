@@ -5,10 +5,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { SpeedsAndFeedsComponent } from './infrastructure/speeds-and-feeds.component';
+import { SpeedsAndFeedsComponent } from './components/speeds-and-feeds.component';
 import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
 import { environment } from '../environments/environment';
-import { ThemeModule } from './infrastructure/theme.module';
+import { ThemeModule } from './theme.module';
 
 @NgModule({
   declarations: [SpeedsAndFeedsComponent],

@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { AkitaNgFormsManager } from '@datorama/akita-ng-forms-manager';
-import { formName, FormsState, SpeedsAndFeedsService } from './speeds-and-feeds.service';
+import { formName, FormsState, SpeedsAndFeedsService } from '../services/speeds-and-feeds.service';
 import { CutAggression } from '../core/cut-aggression.enum';
 
 @Component({
