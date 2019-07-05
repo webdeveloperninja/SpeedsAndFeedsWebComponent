@@ -8,9 +8,9 @@ import { formName, FormsState, SpeedsAndFeedsService } from './speeds-and-feeds.
   providers: [SpeedsAndFeedsService]
 })
 export class SpeedsAndFeedsComponent implements OnInit, OnDestroy {
-  readonly surfaceFeetPerMinute$ = this.speedsAndFeeds.surfaceFeetPerMinute;
+  readonly surfaceFeetPerMinute$ = this.speedsAndFeeds.surfaceFeetPerMinute$;
   readonly chipLoad$ = this.speedsAndFeeds.chipLoad$;
-  readonly feedsAndSpeeds = this.speedsAndFeeds.feedsAndSpeeds;
+  readonly feedsAndSpeeds = this.speedsAndFeeds.materials;
   readonly materials = Object.keys(this.feedsAndSpeeds).map(key => this.feedsAndSpeeds[key]);
   readonly groups: string[];
   readonly formData$ = this.speedsAndFeeds.formData$;
