@@ -9,6 +9,7 @@ import { formName, SpeedsAndFeedsService } from '../services/speeds-and-feeds.se
 })
 export class SpeedsAndFeedsComponent implements OnInit, OnDestroy {
   readonly surfaceFeetPerMinute$ = this.speedsAndFeedsService.surfaceFeetPerMinute$;
+  readonly rpm$ = this.speedsAndFeedsService.rpm$;
   readonly chipLoad$ = this.speedsAndFeedsService.chipLoad$;
   readonly speedsAndFeedsLookup = this.speedsAndFeedsService.speedsAndFeeds;
   readonly speedsAndFeedsForm = this.speedsAndFeedsService.getFormGroup();

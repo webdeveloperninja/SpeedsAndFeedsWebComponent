@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AkitaNgFormsManager } from '@datorama/akita-ng-forms-manager';
-import { filter, map } from 'rxjs/operators';
+import { filter, map, withLatestFrom } from 'rxjs/operators';
 import { CutAggression } from '../models/cut-aggression.enum';
 import { speedsAndFeedsLookup, LookupEntry as SpeedsAndFeedsLookupEntry, LookupEntry } from '../speeds-and-feeds.data';
 import { FormsState } from '../models/forms.state';
@@ -32,6 +32,15 @@ export class SpeedsAndFeedsService {
       const lookupEntry = this.getLookupEntry(materialToCut);
 
       return this.toChipLoad(lookupEntry, toolDiameter);
+    })
+  );
+
+  readonly rpm$ = this.formData$.pipe(
+    withLatestFrom(this.surfaceFeetPerMinute$),
+    map(([formData, surfaceFeetPerMinute]) => {
+      const toolDiameter = formData.value.toolDiameter;
+
+      return (surfaceFeetPerMinute * (12 / 3.14)) / toolDiameter;
     })
   );
 
