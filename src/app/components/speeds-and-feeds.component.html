@@ -1,42 +1,44 @@
-<h1>SFM: {{ surfaceFeetPerMinute$ | async }}</h1>
-<h1>Chip Load: {{ chipLoad$ | async }}"</h1>
-<h1>Rpm: {{ rpm$ | async }} rpm</h1>
-<form [formGroup]="speedsAndFeedsForm">
-  <mat-form-field>
-    <mat-label>Material To Cut</mat-label>
-    <mat-select formControlName="materialToCut">
-      <mat-option *ngFor="let lookup of speedsAndFeedsLookup" [value]="lookup.name">
-        {{ lookup.name}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-  <mat-form-field>
-    <mat-label> Tool Material Type
-    </mat-label>
-    <mat-select formControlName="toolMaterialType">
-      <mat-option value="carbide">
-        Carbide
-      </mat-option>
-      <mat-option value="hss">
-        HSS
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput placeholder="Tool Diamter" formControlName="toolDiameter" type="number" min="0">
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput placeholder="Number of Flutes" formControlName="numberOfFlutes" type="number" min="0">
-  </mat-form-field>
-  <section>
-    <label>Cut aggression:</label>
-    <mat-radio-group formControlName="cutAggression">
-      <mat-radio-button value="aggressive">
-        Aggressive
-      </mat-radio-button>
-      <mat-radio-button value="conservative">
-        Conservative
-      </mat-radio-button>
-    </mat-radio-group>
-  </section>
-</form>
+<mat-card>
+  <form [formGroup]="speedsAndFeedsForm">
+    <mat-form-field>
+      <mat-label>Material To Cut</mat-label>
+      <mat-select formControlName="materialToCut">
+        <mat-option *ngFor="let lookup of speedsAndFeedsLookup" [value]="lookup.name">
+          {{ lookup.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label> Tool Material Type
+      </mat-label>
+      <mat-select formControlName="toolMaterialType">
+        <mat-option value="carbide">
+          Carbide
+        </mat-option>
+        <mat-option value="hss">
+          HSS
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Tool Diamter" formControlName="toolDiameter" type="number" min="0">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Number of Flutes" formControlName="numberOfFlutes" type="number" min="0">
+    </mat-form-field>
+    <section>
+      <label>Cut aggression:</label>
+      <mat-radio-group formControlName="cutAggression">
+        <mat-radio-button value="aggressive">
+          Aggressive
+        </mat-radio-button>
+        <mat-radio-button value="conservative">
+          Conservative
+        </mat-radio-button>
+      </mat-radio-group>
+    </section>
+  </form>
+  <p>SFM: {{ surfaceFeetPerMinute$ | async }}</p>
+  <p>Chip Load: {{ chipLoad$ | async }}"</p>
+  <p>Rpm: {{ rpm$ | async }} rpm</p>
+</mat-card>

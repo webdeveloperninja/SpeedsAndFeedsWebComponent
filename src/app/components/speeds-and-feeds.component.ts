@@ -5,6 +5,7 @@ import { formName, SpeedsAndFeedsService } from '../services/speeds-and-feeds.se
 
 @Component({
   templateUrl: './speeds-and-feeds.component.html',
+  styleUrls: ['./speeds-and-feeds.component.scss'],
   providers: [SpeedsAndFeedsService]
 })
 export class SpeedsAndFeedsComponent implements OnInit, OnDestroy {
