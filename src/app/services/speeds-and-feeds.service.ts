@@ -30,16 +30,26 @@ export class SpeedsAndFeedsService {
     map(([surfaceFeetPerMinute, toolDiameter]) => this.toRpm(surfaceFeetPerMinute, toolDiameter))
   );
 
+  private readonly form = this.formBuilder.group({
+    materialToCut: ['', [Validators.required]],
+    toolMaterialType: ['', [Validators.required]],
+    toolDiameter: ['', [Validators.required]],
+    numberOfFlutes: ['', [Validators.required]],
+    cutAggression: [CutAggression.aggressive, [Validators.required]]
+  });
+
   constructor(private formsManager: AkitaNgFormsManager<FormsState>, private readonly formBuilder: FormBuilder) {}
 
+  onInit() {
+    this.formsManager.upsert(formName, this.form);
+  }
+
+  onDestroy() {
+    this.formsManager.unsubscribe();
+  }
+
   getFormGroup(): FormGroup {
-    return this.formBuilder.group({
-      materialToCut: ['', [Validators.required]],
-      toolMaterialType: ['', [Validators.required]],
-      toolDiameter: ['', [Validators.required]],
-      numberOfFlutes: ['', [Validators.required]],
-      cutAggression: [CutAggression.aggressive, [Validators.required]]
-    });
+    return this.form;
   }
 
   private toSurfaceFeetPerMinute(lookupEntry: SpeedsAndFeedsLookupEntry, aggression: CutAggression) {

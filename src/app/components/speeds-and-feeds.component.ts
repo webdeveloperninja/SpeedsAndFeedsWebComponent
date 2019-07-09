@@ -15,16 +15,13 @@ export class SpeedsAndFeedsComponent implements OnInit, OnDestroy {
   readonly speedsAndFeedsLookup = this.speedsAndFeedsService.speedsAndFeeds;
   readonly speedsAndFeedsForm = this.speedsAndFeedsService.getFormGroup();
 
-  constructor(
-    private readonly formsManager: AkitaNgFormsManager<FormsState>,
-    private readonly speedsAndFeedsService: SpeedsAndFeedsService
-  ) {}
+  constructor(private readonly speedsAndFeedsService: SpeedsAndFeedsService) {}
 
   ngOnInit() {
-    this.formsManager.upsert(formName, this.speedsAndFeedsForm);
+    this.speedsAndFeedsService.init();
   }
 
   ngOnDestroy() {
-    this.formsManager.unsubscribe();
+    this.speedsAndFeedsService.destroy();
   }
 }
