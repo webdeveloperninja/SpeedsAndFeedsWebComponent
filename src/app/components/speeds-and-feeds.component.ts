@@ -18,10 +18,10 @@ export class SpeedsAndFeedsComponent implements OnInit, OnDestroy {
   constructor(private readonly speedsAndFeedsService: SpeedsAndFeedsService) {}
 
   ngOnInit() {
-    this.speedsAndFeedsService.init();
+    this.speedsAndFeedsService.onInit();
   }
 
   ngOnDestroy() {
-    this.speedsAndFeedsService.destroy();
+    this.speedsAndFeedsService.onDestroy();
   }
 }
